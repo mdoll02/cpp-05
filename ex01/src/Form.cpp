@@ -27,10 +27,12 @@ Form::~Form() {
 
 Form &Form::operator=(const Form &other) {
 	std::cout << "Form assignation operator called" << std::endl;
-	this->_name = other._name;
-	this->_signed = other._signed;
-	this->_gradeToSign = other._gradeToSign;
-	this->_gradeToExecute = other._gradeToExecute;
+	if (this != &other) {
+		this->_name = other._name;
+		this->_signed = other._signed;
+		this->_gradeToSign = other._gradeToSign;
+		this->_gradeToExecute = other._gradeToExecute;
+	}
 	return *this;
 }
 
