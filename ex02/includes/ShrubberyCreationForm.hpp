@@ -17,7 +17,7 @@ public:
 
 	class OpenFileException : public std::exception {
 	public:
-		virtual const char* what() const _NOEXCEPT;
+		virtual const char* what() const throw();
 	};
 
 	virtual void performAction() const;

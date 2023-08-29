@@ -32,7 +32,7 @@ ShrubberyCreationForm::~ShrubberyCreationForm() {
 }
 
 void ShrubberyCreationForm::performAction() const {
-	std::ofstream shrubbery_file(_target + "_shrubbery");
+	std::ofstream shrubbery_file((_target + "_shrubbery").c_str());
 
 	if (shrubbery_file.is_open()) {
 		shrubbery_file << "    ^^^         ^^^         ^^^\n"
@@ -41,12 +41,13 @@ void ShrubberyCreationForm::performAction() const {
 						  " ^^^^^^^^^   ^^^^^^^^^   ^^^^^^^^^\n"
 						  "^^^^^^^^^^^ ^^^^^^^^^^^ ^^^^^^^^^^^\n"
 						  "     |||         |||         |||\n"
-						  "     |||         |||         |||" << std::endl;
+						  "     |||         |||         |||\n";
 		shrubbery_file.close();
-	} else
+	} else {
 		throw OpenFileException();
+	}
 }
 
-const char *ShrubberyCreationForm::OpenFileException::what() const _NOEXCEPT {
+const char *ShrubberyCreationForm::OpenFileException::what() const throw() {
 	return "Failed to open shrubbery file";
 }

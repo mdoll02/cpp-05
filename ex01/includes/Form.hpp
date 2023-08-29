@@ -15,15 +15,15 @@ public:
 
 	class GradeTooHighException : public std::exception {
 	public:
-		virtual const char* what() const _NOEXCEPT;
+		virtual const char* what() const throw();
 	};
 	class GradeTooLowException : public std::exception {
 	public:
-		virtual const char* what() const _NOEXCEPT;
+		virtual const char* what() const throw();
 	};
 	class AlreadySignedException : public std::exception {
 	public:
-		virtual const char* what() const _NOEXCEPT;
+		virtual const char* what() const throw();
 	};
 
 	const std::string &getName() const;

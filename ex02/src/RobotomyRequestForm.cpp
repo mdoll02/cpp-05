@@ -1,6 +1,7 @@
 #include "RobotomyRequestForm.hpp"
 #include <iostream>
-#include <random>
+#include <ctime>
+#include <cstdlib>
 #include "Colors.hpp"
 
 RobotomyRequestForm::RobotomyRequestForm() {
@@ -33,14 +34,11 @@ RobotomyRequestForm::~RobotomyRequestForm() {
 }
 
 void RobotomyRequestForm::performAction() const {
-	std::random_device rd;
-	std::mt19937 gen(rd());
+	int seed = std::clock();
+	std::srand(seed);
+	int random_nb = std::rand() % 2;
 
-	std::uniform_int_distribution<int> distribution(0,1);
-
-	int rand = distribution(gen);
-
-	if (!rand)
+	if (!random_nb)
 		std::cout << RED << "robotomy failed" << R << std::endl;
 	else
 		std::cout << GREEN << _target << " has been robotomized" << R << std::endl;

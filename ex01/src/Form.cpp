@@ -36,15 +36,15 @@ Form &Form::operator=(const Form &other) {
 	return *this;
 }
 
-const char *Form::GradeTooHighException::what() const _NOEXCEPT {
+const char *Form::GradeTooHighException::what() const throw() {
 	return "Grade too high";
 }
 
-const char *Form::GradeTooLowException::what() const _NOEXCEPT {
+const char *Form::GradeTooLowException::what() const throw() {
 	return "Grade too low";
 }
 
-const char *Form::AlreadySignedException::what() const _NOEXCEPT {
+const char *Form::AlreadySignedException::what() const throw() {
 	return "Form already signed";
 }
 

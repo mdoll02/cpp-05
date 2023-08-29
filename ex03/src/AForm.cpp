@@ -37,19 +37,19 @@ AForm &AForm::operator=(const AForm &other) {
 	return *this;
 }
 
-const char *AForm::GradeTooHighException::what() const _NOEXCEPT {
+const char *AForm::GradeTooHighException::what() const throw() {
 	return "Grade too high";
 }
 
-const char *AForm::GradeTooLowException::what() const _NOEXCEPT {
+const char *AForm::GradeTooLowException::what() const throw() {
 	return "Grade too low";
 }
 
-const char *AForm::AlreadySignedException::what() const _NOEXCEPT {
+const char *AForm::AlreadySignedException::what() const throw() {
 	return "AForm already signed";
 }
 
-const char *AForm::NotSignedException::what() const _NOEXCEPT {
+const char *AForm::NotSignedException::what() const throw() {
 	return "Form is not yet signed";
 }
 

@@ -27,6 +27,7 @@ int main () {
 	} catch (std::exception &e) {
 		std::cout << e.what() << std::endl;
 	}
+	(void)noworky;
 	std::cout << "\n"<< Joe << *ppf << *rrf << *scf << std::endl;
 	std::cout << BOLDMAGENTA << "Joe tries to execute " << ppf->getName() << R << std::endl;
 	Joe.executeForm(*ppf);
