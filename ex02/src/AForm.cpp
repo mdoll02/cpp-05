@@ -6,17 +6,15 @@ AForm::AForm() : _name("default"), _signed(false), _gradeToSign(150), _gradeToEx
 	std::cout << "AForm default constructor called" << std::endl;
 }
 
-AForm::AForm(const std::string &name, std::string const &target, const int &gradeToSign, const int &gradeToExecute): _name(name), _signed(false), _target(target){
+AForm::AForm(const std::string &name, std::string const &target, const int &gradeToSign, const int &gradeToExecute): _name(name), _signed(false), _gradeToSign(gradeToSign), _gradeToExecute(gradeToExecute), _target(target){
 	std::cout << "AForm constructor called" << std::endl;
 	if (gradeToSign < 1 || gradeToExecute < 1)
 		throw AForm::GradeTooHighException();
 	if (gradeToSign > 150 || gradeToExecute > 150)
 		throw AForm::GradeTooLowException();
-	this->_gradeToSign = gradeToSign;
-	this->_gradeToExecute = gradeToExecute;
 }
 
-AForm::AForm(const AForm &other) {
+AForm::AForm(const AForm &other) : _name(other._name), _gradeToSign(other._gradeToSign), _gradeToExecute(other._gradeToExecute) {
 	std::cout << "AForm copy constructor called" << std::endl;
 	*this = other;
 }
@@ -28,10 +26,7 @@ AForm::~AForm() {
 AForm &AForm::operator=(const AForm &other) {
 	std::cout << "AForm assignation operator called" << std::endl;
 	if (this != &other) {
-		this->_name = other._name;
 		this->_signed = other._signed;
-		this->_gradeToSign = other._gradeToSign;
-		this->_gradeToExecute = other._gradeToExecute;
 		this->_target = other._target;
 	}
 	return *this;

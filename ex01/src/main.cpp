@@ -56,35 +56,20 @@ int main () {
 	Form f("Form", 1, 1);
 	std::cout << f;
 	std::cout << BOLDMAGENTA << "----- Trying to sign form with bureaucrat with grade 1 -----" << R << std::endl;
-	try {
-		f.beSigned(b);
-	}
-	catch (std::exception &e) {
-		std::cout << e.what() << std::endl;
-	}
+	b.signForm(f);
 	std::cout << f;
 
 	std::cout << std::endl;
 
 	std::cout << BOLDMAGENTA << "----- Trying to sign form which is already signed -----" << R << std::endl;
-	try {
-		f.beSigned(b);
-	}
-	catch (std::exception &e) {
-		std::cout << e.what() << std::endl;
-	}
+	b.signForm(f);
 
 	std::cout << std::endl;
 
 	std::cout << BOLDMAGENTA << "----- Trying to sign form with bureaucrat with grade 150 -----" << R << std::endl;
 	Bureaucrat c("Günni", 150);
 	Form g("Form", 1, 1);
-	try {
-		c.signForm(g);
-	}
-	catch (std::exception &e) {
-		std::cout << e.what() << std::endl;
-	}
+	c.signForm(g);
 	std::cout << g;
 
 	std::cout << std::endl;

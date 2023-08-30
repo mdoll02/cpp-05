@@ -42,10 +42,10 @@ public:
 
 protected:
 	AForm();
-	std::string _name;
+	const std::string _name;
 	bool _signed;
-	int _gradeToSign;
-	int _gradeToExecute;
+	const int _gradeToSign;
+	const int _gradeToExecute;
 	std::string _target;
 };
 

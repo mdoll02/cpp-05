@@ -17,10 +17,7 @@ PresidentialPardonForm::PresidentialPardonForm(const PresidentialPardonForm &oth
 PresidentialPardonForm &PresidentialPardonForm::operator=(const PresidentialPardonForm &other) {
 	std::cout << "PresidentialPardonForm assignation operator called" << std::endl;
 	if (this != &other) {
-		this->_name = other._name;
 		this->_signed = other._signed;
-		this->_gradeToSign = other._gradeToSign;
-		this->_gradeToExecute = other._gradeToExecute;
 		this->_target = other._target;
 	}
 	return *this;

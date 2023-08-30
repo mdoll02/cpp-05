@@ -15,7 +15,7 @@ Bureaucrat::Bureaucrat(const std::string &name, const int &grade) : _name(name) 
 	std::cout << "Bureaucrat constructor called" << std::endl;
 }
 
-Bureaucrat::Bureaucrat(const Bureaucrat &other) {
+Bureaucrat::Bureaucrat(const Bureaucrat &other) : _name(other._name) {
 	std::cout << "Bureaucrat copy constructor called" << std::endl;
 	*this = other;
 }
@@ -23,7 +23,6 @@ Bureaucrat::Bureaucrat(const Bureaucrat &other) {
 Bureaucrat &Bureaucrat::operator=(const Bureaucrat &other) {
 	std::cout << "Bureaucrat assignation operator called" << std::endl;
 	if (this != &other) {
-		this->_name = other._name;
 		this->_grade = other._grade;
 	}
 	return *this;
@@ -53,14 +52,16 @@ void Bureaucrat::decrementGrade() {
 	_grade++;
 }
 
-void Bureaucrat::signAForm(AForm &AForm) const {
-	if (AForm.getSigned())
-		std::cout << this->_name << " cannot sign " << AForm.getName() << " because it is already signed" << std::endl;
-	else if (this->_grade > AForm.getGradeToSign())
-		std::cout << this->_name << " cannot sign " << AForm.getName() << " because his grade is too low" << std::endl;
-	else {
-		std::cout << this->_name << " signs " << AForm.getName() << std::endl;
-		AForm.beSigned(*this);
+void Bureaucrat::signAForm(AForm &form) const {
+	try {
+		form.beSigned(*this);
+		std::cout << this->getName() << " signed " << form.getName() << std::endl;
+	}
+	catch (AForm::GradeTooLowException &ex) {
+		std::cerr << this->getName() << " couldn't sign form because " << ex.what() << std::endl;
+	}
+	catch (AForm::AlreadySignedException &ex) {
+		std::cerr << this->getName() << " couldn't sign form because " << ex.what() << std::endl;
 	}
 }
 

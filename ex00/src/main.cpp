@@ -32,7 +32,7 @@ int main () {
 
 	std::cout << BOLDMAGENTA << "----- Creating new bureaucrat with grade 0 -----" << R << std::endl;
 	try {
-		Bureaucrat no("No", 1);
+		Bureaucrat no("No", 0);
 	}
 	catch (std::exception &e) {
 		std::cout << e.what() << std::endl;

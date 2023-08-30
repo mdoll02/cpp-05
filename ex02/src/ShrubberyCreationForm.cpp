@@ -18,10 +18,7 @@ ShrubberyCreationForm::ShrubberyCreationForm(const ShrubberyCreationForm &other)
 ShrubberyCreationForm &ShrubberyCreationForm::operator=(const ShrubberyCreationForm &other) {
 	std::cout << "ShrubberyCreationForm assignation operator called" << std::endl;
 	if (this != &other) {
-		this->_name = other._name;
 		this->_signed = other._signed;
-		this->_gradeToSign = other._gradeToSign;
-		this->_gradeToExecute = other._gradeToExecute;
 		this->_target = other._target;
 	}
 	return *this;

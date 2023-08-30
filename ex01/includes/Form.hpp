@@ -35,10 +35,10 @@ public:
 
 private:
 	Form();
-	std::string _name;
+	const std::string _name;
 	bool _signed;
-	int _gradeToSign;
-	int _gradeToExecute;
+	const int _gradeToSign;
+	const int _gradeToExecute;
 
 
 
